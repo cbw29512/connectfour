@@ -1,0 +1,36 @@
+
+.chip1 {
+    border-radius: 50%;
+    background-color: red;
+    z-index: 1;
+    background-size: 100%;
+    width: 100px;
+    height: 100px;
+    font-size: 90px;
+    color: red;
+}
+
+.chip2 {
+    border-radius: 50%;
+    background-color: black;
+    z-index: 1;
+    background-size: 100%;
+    width: 100px;
+    height: 100px;
+    font-size: 90px;
+    color: black;
+
+}
+
+tr  {
+    border: 1px solid black;
+    width: 150px;
+    height: 125px;
+}   
+
+td  {
+    border: 1px solid black;
+    width: 150px;
+    height: 125px;
+    text-align: center;
+}
