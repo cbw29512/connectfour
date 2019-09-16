@@ -13,7 +13,7 @@ table {
     transform: rotate(90deg);
  }
 
-.chipRed {
+div.chipRed, div.chipBlack {
     border-radius: 50%;
     background-color: red;
     z-index: 1;
@@ -22,9 +22,11 @@ table {
     padding: 8px;
     border: 2px solid #666;
     text-align: center;
+    width: 60px;
+    flex: 
 }
 
-.chipBlack {
+/*.chipBlack {
     border-radius: 50%;
     background-color: black;
     z-index: 1;
@@ -33,7 +35,7 @@ table {
     padding: 8px;
     border: 2px solid #666;
     text-align: center;
-}
+}*/
 
 /*.chip2 {
     border-radius: 50%;
@@ -54,6 +56,7 @@ tr, td {
     width: 100px;
     height: 75px;
     text-align: center;
+    cursor: pointer;
 }
 
 div.sidenav {
@@ -64,8 +67,8 @@ div.sidenav {
     top: 0; 
     left: 0; 
     overflow-x: hidden; 
-    padding-top: 20px;
-    top: 50px;
+    padding-top: 10px;
+    top: 100px;
 }
   
 .sidenav a {
@@ -89,23 +92,20 @@ div.sidenav {
 table {
     position: absolute;
     left: 400px;
-    top: 100px;
-}
-
-buttons {
-    padding: 0 10px 0 10px;
-    box-sizing: border-box;
-    text-align: center;
+    top: 150px;
 }
 
 .start,
 .restart {
     font: 2rem;
-    border-radius: 50%;
+    border-radius: 30%;
     padding: 15px;
     margin: 15px; 
     color: whitesmoke;
-
+    box-sizing: border-box;
+    text-align: center;
+    width: 80px;
+    cursor: pointer;
 }
 
 .start{
@@ -121,7 +121,7 @@ buttons {
     font: 2rem;
     padding: 8px;
     border-radius: 50%;
-    width: 60%;
+    width: 90%;
     margin: auto;
-    height: 75%;
+    height: 90%;
 }
