@@ -5,24 +5,30 @@
     font: 16px;
 }
 
-span.chip1 {
+table {
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+ }
+
+.chipRed {
     border-radius: 50%;
     background-color: red;
     z-index: 1;
-    background-size: 100%;
-    font-size: 45px;
+    font-size: 2rem;
     color: black;
     padding: 8px;
     border: 2px solid #666;
     text-align: center;
 }
 
-span.chip2 {
+.chipBlack {
     border-radius: 50%;
     background-color: black;
     z-index: 1;
-    background-size: 100%;
-    font-size: 45px;
+    font-size: 2rem;
     color: red;
     padding: 8px;
     border: 2px solid #666;
