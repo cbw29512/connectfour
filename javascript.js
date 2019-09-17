@@ -1,18 +1,18 @@
 let currentTurn = 'player1';
 
-const rows = document.getElementsByTagName('tr');
+const columns = document.getElementsByTagName('tr');
 
-for (let rowIndex = 0; rowIndex < rows.length; rowIndex++) {
-    rows[rowIndex].addEventListener('click', dropChip);
+for (let columnIndex = 0; columnIndex < columns.length; columnIndex++) {
+    columns[columnIndex].addEventListener('click', dropChip);
 }
 
 function dropChip() {
-    let row = event.currentTarget
-
-    for (let cellIndex = row.children.length - 1; cellIndex >= 0;cellIndex--) {
+    let column = event.currentTarget
+    let cells = column.children
+    for (let cellIndex = cells.length - 1; cellIndex >= 0;cellIndex--) {
 
         console.log(row)
-        if (row.children[cellIndex].childElementCount === 0) {
+        if (cells[cellIndex].childElementCount === 0) {
 
             const chip = document.createElement('div');
 
@@ -22,8 +22,46 @@ function dropChip() {
                 chip.className = 'chipBlack';
             };
 
-            row.children[cellIndex].appendChild(chip);
+            cells[cellIndex].appendChild(chip);
             break;
         };
     };
+    let condition = checkEndCondition () 
+
 };
+    function checkEndCondition () {
+        if ( checkHorizontalWin () || checkVerticialWin() || checkDiagonalLeft() || checkDiagonalright()) {
+            return "win"   
+        }  else if (checkTie()) {
+            return "tie"
+        }  else {
+            return
+        }
+    }
+
+    function checkHorizontalWin () {
+        for ( let columnIndex = 0; columnIndex < columns.length; columnIndex++) {
+            let cells = columns[columnIndex].children
+                for (let cellIndex = 0 ; cellIndex < cells.length; cellIndex++) {
+                    if ( cells [cellIndex].hasChildNodes()) {
+                        
+                }
+
+            }
+
+        }
+    }        
+
+           
+        
+        
+        
+        /*if horzontial || vertical || diagonalL || diagonalR 
+        return 
+
+        else tie 
+        return
+
+        else
+        return
+    }*/
