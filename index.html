@@ -15,23 +15,24 @@
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-        <div class="buttons">
-        <button class="start">Start!</button>
-        <button class="restart">Restart!</button>
-        </div>
-        <div class="sidenav">
-            <h1>Instructions: </h1>
-            <p>Player 1 plays the red chip and Player 2 plays the black chip.<br>
-               Red chips goes first. Click a column to drop the chip inside of.
-               Each player gets one turn until four of the same color chips are aligned
-               either: Horizontal, Verticial, Right Diagonal or Left Diagonal. A tie 
-               occurs if all spots are full and the winning condition is not meet. 
-            </p>
-        </div>
-        <div class="chipRed"></div>
-        <div class="chipBlack"></div>
-
-        <div id="main">
+        <header>
+            <h1>
+                Connect Four Game!
+            </h1>
+        </header>
+        
+        <div class="main">
+            <div class="textColumn">
+                <p> Instructions:<br>
+                    Player 1 plays the red chip and Player 2 plays the black chip.<br>
+                    Red chips goes first.<br>
+                    Click a column to drop the chip inside of.<br>
+                    Each player gets one turn until four of the same color chips are aligned
+                    either: Horizontal, Verticial, Right Diagonal or Left Diagonal.<br>
+                    A tie occurs if all spots are full and the winning condition is not meet. 
+                </p>
+            </div>
+    <div class="tableColumn">
         <table>
             <tr>
                 <td></td>
@@ -90,9 +91,16 @@
                 <td></td>
             </tr>
         </table>
+        
+            <div class="buttons">
+                <button class="start">Start!</button>
+                <button class="restart">Restart!</button>
+            </div>
+        
+        </div> 
     </div> 
-        
-        
+    
+     
         <script src="javascript.js" async defer></script>
     </body>
 </html>

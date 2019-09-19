@@ -1,8 +1,28 @@
+@import url('https://fonts.googleapis.com/css?family=Cute+Font&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Chilanka&display=swap');
+
 * {
     padding: 0;
     margin: 0;
-    box-sizing: border-box;
-    font: 16px;
+    font: 14px;
+}
+
+body {
+    display: flex;
+    text-align: center;
+}
+
+header, h1 {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 50px;
+}
+
+.main {
+    display: flex;
+    height: 100vh;
+    z-index: 0;   
 }
 
 table {
@@ -11,7 +31,74 @@ table {
     -o-transform: rotate(90deg);
     -ms-transform: rotate(90deg);
     transform: rotate(90deg);
- }
+    margin: auto;
+}
+
+tr, td {
+    border: 2px solid black;
+    width: 100px;
+    height: 75px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.textColumn{
+    float: left;
+    border: 5px ridge lightblue;
+    display: flex;
+    width: 25%;
+    background: linear-gradient(rgb(47,150,163), rgb(48,62,143));
+    color: antiquewhite;
+    height: 75%;
+    font-size: 1rem;
+    word-wrap: break-word;
+    font-family: 'Cute Font', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.start,
+.restart {
+    font: 2rem;
+    border-radius: 30%;
+    padding: 15px;
+    margin: 15px; 
+    color: whitesmoke;
+    box-sizing: border-box;
+    text-align: center;
+    width: 80px;
+    cursor: pointer;
+    opacity: .5;
+    display: flex;
+    z-index: 1;
+    float: right;
+}
+
+.start{
+    background: blue;
+}
+
+.restart {
+    background: crimson;
+}
+
+.start:hover {
+    opacity: 1;
+    background-color: purple;
+    box-shadow: 10px 5px 5px black;
+    color: white;
+    border-radius: 50%; 
+    font-family: 'Chilanka', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    padding: 25px;
+}
+
+.restart:hover {
+    opacity: 1;
+    background-color: red;
+    box-shadow: 10px 5px 5px black;
+    color: white;
+    border-radius: 50%;
+    font-family: 'Chilanka', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    padding: 25px;
+}
 
 div.chipRed, div.chipBlack {
     border-radius: 50%;
@@ -22,9 +109,19 @@ div.chipRed, div.chipBlack {
     padding: 8px;
     border: 2px solid #666;
     text-align: center;
-    width: 60px;
-    flex: 
+    width: 80%;
+    height: 80%;
 }
+
+/*.chip3 {
+    background: red;
+    font: 2rem;
+    padding: 8px;
+    border-radius: 50%;
+    width: 90%;
+    margin: auto;
+    height: 90%;
+}*/
 
 /*.chipBlack {
     border-radius: 50%;
@@ -51,77 +148,18 @@ div.chipRed, div.chipBlack {
     height: 36px;
 }*/
 
-tr, td {
-    border: 2px solid black;
-    width: 100px;
-    height: 75px;
-    text-align: center;
+/*button.reset {
+    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 1em;
+    width: 150px;
+    height: 100px;
+    border-radius: 10%/50%;
+    margin-top: 10px;
+    opacity: 0.3;
     cursor: pointer;
-}
-
-div.sidenav {
-    height: 100%; 
-    width: 25%; 
-    position: absolute; 
-    z-index: 1; 
-    top: 0; 
-    left: 0; 
-    overflow-x: hidden; 
-    padding-top: 10px;
-    top: 100px;
-}
-  
-.sidenav a {
-    padding: 6px 8px 6px 16px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #818181;
-    display: block;
-}
-    
-.sidenav a:hover {
-    color: #f1f1f1;
-}
-  
-.main {
-    margin-left: 160px; 
-    padding: 0px 10px;
-    float: right;
-}
-  
-table {
-    position: absolute;
-    left: 400px;
-    top: 150px;
-}
-
-.start,
-.restart {
-    font: 2rem;
-    border-radius: 30%;
-    padding: 15px;
-    margin: 15px; 
+    background-color: orange;
     color: whitesmoke;
-    box-sizing: border-box;
-    text-align: center;
-    width: 80px;
-    cursor: pointer;
-}
-
-.start{
-    background: purple;
-}
-
-.restart {
-    background: crimson;
-}
-
-.chip3 {
-    background: red;
-    font: 2rem;
-    padding: 8px;
-    border-radius: 50%;
-    width: 90%;
-    margin: auto;
-    height: 90%;
-}
+    position: relative;
+    top: 20px;
+    padding: 10px;
+}*/
