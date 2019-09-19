@@ -28,10 +28,10 @@ function dropChip() {
   let condition = checkEndCondition();
 
   if (condition === 'win') {
-    alert("You have won!")
+    alert("You have WON! (Hit reset to restart game!)")
     removeHandlers()
   } else if (condition === 'tie') {
-    alert("Oh no, it's a tie!")
+    alert("Oh no, it's a TIE! (Hit reset to restart game!")
     removeHandlers()
   }    
 // switch players
@@ -75,7 +75,6 @@ function checkEndCondition() {
 }
 
 function checkHorizontalWin() {
-  let chipColor = getChipColor();
   const xEdge = (columns.length - 3); 
 
   for (let columnIndex = 0; columnIndex < xEdge; columnIndex++) {
@@ -89,9 +88,12 @@ function checkHorizontalWin() {
         let thirdCell = columns[columnIndex + 2].children[cellIndex];
         let fourthCell = columns[columnIndex + 3].children[cellIndex];
 
+        const allChipsMatch = 
+        (secondCell.hasChildNodes() && secondCell.firstElementChild.className === firstCell.firstElementChild.className) &&
+        (thirdCell.hasChildNodes() && thirdCell.firstElementChild.className === firstCell.firstElementChild.className) &&
+        (fourthCell.hasChildNodes() && fourthCell.firstElementChild.className === firstCell.firstElementChild.className);
         if (allChipsMatch) {
-          console.log('Horizontal Win triggered');
-          return true;
+        return true;
         }
       }
     }
@@ -114,7 +116,11 @@ function checkVerticalWin() {
           let secondCell = columns[columnIndex].children[rowIndex + 1];
           let thirdCell = columns[columnIndex].children[rowIndex + 2];
           let fourthCell = columns[columnIndex].children[rowIndex + 3];
-  
+          
+          const allChipsMatch = 
+          (secondCell.hasChildNodes() && secondCell.firstElementChild.className === firstCell.firstElementChild.className) &&
+          (thirdCell.hasChildNodes() && thirdCell.firstElementChild.className === firstCell.firstElementChild.className) &&
+          (fourthCell.hasChildNodes() && fourthCell.firstElementChild.className === firstCell.firstElementChild.className);
           if (allChipsMatch)
           {
             return true;
@@ -142,6 +148,11 @@ function checkDiagonalLeft() {
           let thirdCell = columns[columnIndex + 2].children[rowIndex + 2];
           let fourthCell = columns[columnIndex + 3].children[rowIndex + 3];
   
+          const allChipsMatch = 
+          (secondCell.hasChildNodes() && secondCell.firstElementChild.className === firstCell.firstElementChild.className) &&
+          (thirdCell.hasChildNodes() && thirdCell.firstElementChild.className === firstCell.firstElementChild.className) &&
+          (fourthCell.hasChildNodes() && fourthCell.firstElementChild.className === firstCell.firstElementChild.className);
+
           if (allChipsMatch)
           {
             return true;
@@ -169,7 +180,12 @@ function checkDiagonalRight() {
           let secondCell = columns[columnIndex - 1].children[rowIndex + 1];
           let thirdCell = columns[columnIndex - 2].children[rowIndex + 2];
           let fourthCell = columns[columnIndex - 3].children[rowIndex + 3];
-  
+
+          const allChipsMatch = 
+          (secondCell.hasChildNodes() && secondCell.firstElementChild.className === firstCell.firstElementChild.className) &&
+          (thirdCell.hasChildNodes() && thirdCell.firstElementChild.className === firstCell.firstElementChild.className) &&
+          (fourthCell.hasChildNodes() && fourthCell.firstElementChild.className === firstCell.firstElementChild.className);
+
           if (allChipsMatch) 
           {
             return true;
@@ -192,9 +208,3 @@ function checkTie() {
   };
   return true;
 }
-
-// condition that must be met in order for a win to be reported
-const allChipsMatch = 
-(secondCell.hasChildNodes() && secondCell.firstElementChild.className === firstCell.firstElementChild.className) &&
-(thirdCell.hasChildNodes() && thirdCell.firstElementChild.className === firstCell.firstElementChild.className) &&
-(fourthCell.hasChildNodes() && fourthCell.firstElementChild.className === firstCell.firstElementChild.className);

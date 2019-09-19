@@ -63,14 +63,8 @@ tr, td {
     opacity: .5;
     display: flex;
     z-index: 1;
-    float: right;
-}
-
-
-#restart {
     background: crimson;
 }
-
 
 #restart:hover {
     opacity: 1;
@@ -101,53 +95,3 @@ div.chipRed, div.chipBlack {
     background-color: black;
 }
 
-/*.chip3 {
-    background: red;
-    font: 2rem;
-    padding: 8px;
-    border-radius: 50%;
-    width: 90%;
-    margin: auto;
-    height: 90%;
-}*/
-
-/*.chipBlack {
-    border-radius: 50%;
-    background-color: black;
-    z-index: 1;
-    font-size: 2rem;
-    color: red;
-    padding: 8px;
-    border: 2px solid #666;
-    text-align: center;
-}*/
-
-/*.chip2 {
-    border-radius: 50%;
-    background-color: black;
-    z-index: 1;
-    background-size: 100%;
-    font-size: 60px;
-    color: red;
-    padding: 8px;
-    border: 2px solid #666;
-    text-align: center;
-    width: 36px;
-    height: 36px;
-}*/
-
-/*button.reset {
-    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-size: 1em;
-    width: 150px;
-    height: 100px;
-    border-radius: 10%/50%;
-    margin-top: 10px;
-    opacity: 0.3;
-    cursor: pointer;
-    background-color: orange;
-    color: whitesmoke;
-    position: relative;
-    top: 20px;
-    padding: 10px;
-}*/
