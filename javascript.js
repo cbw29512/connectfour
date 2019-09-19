@@ -2,11 +2,13 @@ let currentTurn = "player1";
 
 const columns = document.getElementsByTagName("tr");
 
-for (let columnIndex = 0; columnIndex < columns.length; columnIndex++) {
-  columns[columnIndex].addEventListener("click", dropChip);
-}
+addHandlers();
+
+const resetButton = document.getElementById("restart");
+resetButton.addEventListener("click", resetGame)
 
 function dropChip() {
+  console.log('This move: ' + currentTurn)
   let column = event.currentTarget;
   let cells = column.children;
   for (let cellIndex = cells.length - 1; cellIndex >= 0; cellIndex--) {
@@ -27,8 +29,10 @@ function dropChip() {
 
   if (condition === 'win') {
     alert("You have won!")
+    removeHandlers()
   } else if (condition === 'tie') {
     alert("Oh no, it's a tie!")
+    removeHandlers()
   }    
 // switch players
   if (currentTurn === 'player1') {
@@ -38,9 +42,30 @@ function dropChip() {
   } 
 
 }
+//Resetting game functions from line 42-60
+function resetGame() {
+  let cells = document.getElementsByTagName('td')
+
+  for (cellIndex = 0; cellIndex < cells.length; cellIndex++) {
+    cells[cellIndex].innerHTML = "";
+  }
+  addHandlers();
+}
+
+function removeHandlers() {
+  for (let columnIndex = 0; columnIndex < columns.length; columnIndex++) {
+    columns[columnIndex].removeEventListener("click", dropChip)
+  }
+}
+
+function addHandlers() {
+  for (let columnIndex = 0; columnIndex < columns.length; columnIndex++) {
+    columns[columnIndex].addEventListener("click", dropChip);
+  }
+}
 
 function checkEndCondition() {
-  if (checkHorizontalWin() || checkVerticialWin() || checkDiagonalLeft() || checkDiagonalRight()) {
+  if (checkHorizontalWin() || checkVerticalWin() || checkDiagonalLeft() || checkDiagonalRight()) {
     return "win";
   } else if (checkTie()) {
             return "tie"
@@ -50,7 +75,7 @@ function checkEndCondition() {
 }
 
 function checkHorizontalWin() {
-
+  let chipColor = getChipColor();
   const xEdge = (columns.length - 3); 
 
   for (let columnIndex = 0; columnIndex < xEdge; columnIndex++) {
@@ -64,14 +89,8 @@ function checkHorizontalWin() {
         let thirdCell = columns[columnIndex + 2].children[cellIndex];
         let fourthCell = columns[columnIndex + 3].children[cellIndex];
 
-        if (
-          secondCell.hasChildNodes() &&
-          secondCell.className === firstCell.className &&
-          (thirdCell.hasChildNodes() &&
-            thirdCell.className === firstCell.className) &&
-          (fourthCell.hasChildNodes() &&
-            fourthCell.className === firstCell.className)
-        ) {
+        if (allChipsMatch) {
+          console.log('Horizontal Win triggered');
           return true;
         }
       }
@@ -96,9 +115,7 @@ function checkVerticalWin() {
           let thirdCell = columns[columnIndex].children[rowIndex + 2];
           let fourthCell = columns[columnIndex].children[rowIndex + 3];
   
-          if ((secondCell.hasChildNodes() && secondCell.className === firstCell.className) &&
-            (thirdCell.hasChildNodes() && thirdCell.className === firstCell.className) &&
-            (fourthCell.hasChildNodes() && fourthCell.className === firstCell.className))
+          if (allChipsMatch)
           {
             return true;
           }
@@ -117,7 +134,7 @@ function checkDiagonalLeft() {
     for (let columnIndex = 0; columnIndex < xEdge; columnIndex++) {
       let cells = columns[columnIndex].children;
   
-      for (let rowIndex = 0; rowIndex < cells.length; rowIndex++) {
+      for (let rowIndex = 0; rowIndex < yEdge; rowIndex++) {
   
         if (cells[rowIndex].hasChildNodes()) {
           let firstCell = columns[columnIndex].children[rowIndex];
@@ -125,9 +142,8 @@ function checkDiagonalLeft() {
           let thirdCell = columns[columnIndex + 2].children[rowIndex + 2];
           let fourthCell = columns[columnIndex + 3].children[rowIndex + 3];
   
-          if ((secondCell.hasChildNodes() && secondCell.className === firstCell.className) &&
-             (thirdCell.hasChildNodes() && thirdCell.className === firstCell.className) &&
-             (fourthCell.hasChildNodes() && fourthCell.className === firstCell.className)) {
+          if (allChipsMatch)
+          {
             return true;
           }
         }
@@ -146,7 +162,7 @@ function checkDiagonalRight() {
     for (let columnIndex = countStart ; columnIndex > 2 ; columnIndex--) {
       let cells = columns[columnIndex].children;
   
-      for (let rowIndex = 0; rowIndex < cells.leng; rowIndex++) {
+      for (let rowIndex = 0; rowIndex < yEdge; rowIndex++) {
   
         if (cells[rowIndex].hasChildNodes()) {
           let firstCell = columns[columnIndex].children[rowIndex];
@@ -154,9 +170,8 @@ function checkDiagonalRight() {
           let thirdCell = columns[columnIndex - 2].children[rowIndex + 2];
           let fourthCell = columns[columnIndex - 3].children[rowIndex + 3];
   
-          if ((secondCell.hasChildNodes() && secondCell.className === firstCell.className) &&
-             (thirdCell.hasChildNodes() && thirdCell.className === firstCell.className) &&
-             (fourthCell.hasChildNodes() && fourthCell.className === firstCell.className)) {
+          if (allChipsMatch) 
+          {
             return true;
           }
         }
@@ -177,3 +192,9 @@ function checkTie() {
   };
   return true;
 }
+
+// condition that must be met in order for a win to be reported
+const allChipsMatch = 
+(secondCell.hasChildNodes() && secondCell.firstElementChild.className === firstCell.firstElementChild.className) &&
+(thirdCell.hasChildNodes() && thirdCell.firstElementChild.className === firstCell.firstElementChild.className) &&
+(fourthCell.hasChildNodes() && fourthCell.firstElementChild.className === firstCell.firstElementChild.className);
