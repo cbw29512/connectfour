@@ -25,18 +25,28 @@ function dropChip() {
   }
   let condition = checkEndCondition();
 
-
+  if (condition === 'win') {
+    alert("You have won!")
+  } else if (condition === 'tie') {
+    alert("Oh no, it's a tie!")
+  }    
+// switch players
+  if (currentTurn === 'player1') {
+    currentTurn = 'player2';
+  } else if (currentTurn === 'player2') {
+    currentTurn = 'player1';
+  } 
 
 }
 
 function checkEndCondition() {
   if (checkHorizontalWin() || checkVerticialWin() || checkDiagonalLeft() || checkDiagonalRight()) {
     return "win";
-  } /*else if (checkTie()) {
+  } else if (checkTie()) {
             return "tie"
         }  else {
             return
-        }*/
+        }
 }
 
 function checkHorizontalWin() {
@@ -154,3 +164,16 @@ function checkDiagonalRight() {
     }
     return false;
 };
+
+function checkTie() {
+  let cells  = document.getElementsByTagName('td');
+
+  for (let cellIndex = 0; cellIndex < cells.length; cellIndex ++) {
+    if (cells[cellIndex].hasChildNodes()) {
+      continue;
+    } else {
+      return false;
+    };
+  };
+  return true;
+}
